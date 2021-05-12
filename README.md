@@ -2,8 +2,8 @@
 AB Dialogs is a managed solution that provides the developer a configurable wrapper and convenient way to open dialogs in the new UCI interface of Dataverse and process results of the call.
 
 Here is the list of steps you need to perform in order to use this dialog in your Model-Driven Apps:
-1. Download and install the latest release of ABDialogs solution
-1. AAdd the reference to the "ab_/Dialogs/Dialog.js" webresource to the place where you plan to call the dialog from:
+1. Download and install [the latest release](/AndrewButenko/ABDialogs/releases/download/1.0.0.0/ABDialogs_1_0_0_0_managed.zip) of ABDialogs solution
+1. Add the reference to the "ab_/Dialogs/Dialog.js" webresource to the place where you plan to call the dialog from:
     * When you plan to use it in the form scripts, just add the reference as a regular JavaScript webresource
     * When you plan to use it in the ribbon scripts, add the reference to the webresource before using it in your code using "Custom JavaScript" Enable Rule
 1. Prepare your "Dialog Configuration" object that has the following structure:
@@ -21,16 +21,16 @@ interface DialogSettings {
 interface TabSetting {
     //Helper information that will be shown on top of fields, optional
     TabHeaderText?: string;
-    //Settings for all of fields available on the step, required
+    //Settings for all of the fields available on the step, required
     FieldSettings: FieldSetting[];
 }
 
 //This is a setting description of the particular field
 interface FieldSetting {
-    //Name of the particulat dialog input, should be uniqie accross the dialog 
+    //Name of the particular dialog input, should be unique across the dialog 
     //settings, required
     Name: string;
-    //Label that will be show nearby the field, required
+    //Label that will be shown beside the field, required
     Label: string;
     //Type of the field/input that will be rendered, any other type will be rendered
     //just as a label, required
