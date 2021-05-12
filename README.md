@@ -54,3 +54,73 @@ interface ChoiceValue {
     Label: string;
 }
 ```
+Call **AB.Dialogs.open** function to open the dialog. This function returns the promise.
+When user closes dialog using "X" button or "Cancel" button, promise is resolved with **null** value and returns the object with all values selected in dialog otherwise.
+
+Here is an example of JavaScript webresource that is used to show 2-Tabs Dialog with 2 inputs each:
+
+```javascript
+var AB = AB || {};
+AB.DialogDemo = (function () {
+
+    function openDialog() {
+        var dialogParameters = {
+            DialogHeaderText: "Custom Header Here",
+            Tabs: [{
+                TabHeaderText: "This is Text Header",
+                FieldSettings: [
+                    {
+                        FieldType: "string",
+                        Label: "Text Field Label",
+                        Name: "text1",
+                        Value: "Initial Value of Text Field",
+                    }, {
+                        FieldType: "date",
+                        Label: "Date Field",
+                        Name: "date1",
+                        Value: new Date()
+                    }]},{
+                FieldSettings: [{
+                        FieldType: "boolean",
+                        Label: "Two Values Select",
+                        Name: "bool2",
+                        Value: false,
+                        BooleanStyle: "toggle",
+                        ChoiceValues: [{
+                            Value: false,
+                            Label: "False is selected"
+                        }, {
+                            Value: true,
+                            Label: "True is selected"
+                        }]
+                    }, {
+                        FieldType: "choices",
+                        Label: "Dropdown",
+                        Name: "dd1",
+                        Value: undefined,
+                        ChoiceValues: [1, 2, 3, 4].map(function(o) {return { Value: o, Label: 'Option ' + o }})
+                    }
+                ]
+            }]
+        };
+
+        AB.Dialogs.open(dialogParameters).then(function(result){
+            console.log(result);
+        }, Xrm.Navigation.openAlertDialog)
+    }
+
+    return {
+        openDialog: openDialog
+    };
+})();
+```
+
+If user leaves text and datetime field unchanged, sets the boolean field to true and selects "Option 2" and "Option 3" in choices control here is the object that will be returned to the callback:
+```json
+{
+    "text1": "Initial Value of Text Field",
+    "date1": "2021-05-12T07:09:16.197Z",//DateTime fields are returned as DateTime fields, no need to include additional parsing
+    "bool2": true,
+    "dd1": [2, 3]
+}
+```
