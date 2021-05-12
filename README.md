@@ -26,19 +26,23 @@ interface TabSetting {
 
 //This is a setting description of the particular field
 interface FieldSetting {
-    //Name of the particulat dialog input, should be uniqie accross the dialog settings, required
+    //Name of the particulat dialog input, should be uniqie accross the dialog 
+    //settings, required
     Name: string;
     //Label that will be show nearby the field, required
     Label: string;
-    //Type of the field/input that will be rendered, any other type will be rendered just as a label, required
+    //Type of the field/input that will be rendered, any other type will be rendered
+    //just as a label, required
     FieldType: "string" | "wholenumber" | "date" | "boolean" | "choice" | "choices";
     //Initial value of the field, optional
     Value: any;
-    //Array that contains value/label pairs used in "boolean", "choice" and "choices" types of fields, required for mentioned types, ignored for other
+    //Array that contains value/label pairs used in "boolean", "choice" and "choices"
+    //types of fields, required for mentioned types, ignored for other
     ChoiceValues?: ChoiceValue[];
     //UI formatting used for "boolean" type of field, "checkbox" is used by default, optional
     BooleanStyle?: "checkbox" | "radio" | "toggle";
-    //UI formatting of "string" field that allows to enter information in multi-line format, 1 is used by default, ignored for other than "string" types
+    //UI formatting of "string" field that allows to enter information in multi-line format,
+    //1 is used by default, ignored for other than "string" types
     LinesNumber?: number;
 }
 
