@@ -1,5 +1,5 @@
-# AB Dialog
-AB Dialog is a managed solution that provides developer a configurable wrapper and convenient way to open dialogs in new UCI interface of Dataverse and process results of the call.
+# AB Dialogs
+AB Dialogs is a managed solution that provides developer a configurable wrapper and convenient way to open dialogs in new UCI interface of Dataverse and process results of the call.
 
 Here is the list of steps you need to perform in order to use this dialog in your Model Driven Apps:
 1. Download and install the latest release of ABDialog solution
