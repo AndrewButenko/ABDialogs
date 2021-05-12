@@ -12,7 +12,8 @@ Here is the list of steps you need to perform in order to use this dialog in you
 interface DialogSettings {
     //Header that will be shown at the top of the dialog, required
     DialogHeaderText: string;
-    //It's possible to have multistep dialogs and TabSettings has to contain all of the step available, required
+    //It's possible to have multistep dialogs and TabSettings has to contain all
+    //of the step available, required
     TabSettings: TabSetting[];
 }
 
