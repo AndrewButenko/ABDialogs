@@ -1,9 +1,9 @@
 # AB Dialogs
-AB Dialogs is a managed solution that provides developer a configurable wrapper and convenient way to open dialogs in new UCI interface of Dataverse and process results of the call.
+AB Dialogs is a managed solution that provides the developer a configurable wrapper and convenient way to open dialogs in the new UCI interface of Dataverse and process results of the call.
 
-Here is the list of steps you need to perform in order to use this dialog in your Model Driven Apps:
-1. Download and install the latest release of ABDialog solution
-1. Add the reference to "ab_/Dialogs/Dialog.js" webresource to the place where you plan to call the dialog from:
+Here is the list of steps you need to perform in order to use this dialog in your Model-Driven Apps:
+1. Download and install the latest release of ABDialogs solution
+1. AAdd the reference to the "ab_/Dialogs/Dialog.js" webresource to the place where you plan to call the dialog from:
     * When you plan to use it in the form scripts, just add the reference as a regular JavaScript webresource
     * When you plan to use it in the ribbon scripts, add the reference to the webresource before using it in your code using "Custom JavaScript" Enable Rule
 1. Prepare your "Dialog Configuration" object that has the following structure:
@@ -55,7 +55,7 @@ interface ChoiceValue {
 }
 ```
 Call **AB.Dialogs.open** function to open the dialog. This function returns the promise.
-When user closes dialog using "X" button or "Cancel" button, promise is resolved with **null** value and returns the object with all values selected in dialog otherwise.
+When a user closes the dialog using the "X" button or "Cancel" button, the promise is resolved with **null** value and returns the object with all values selected in dialog otherwise.
 
 Here is an example of JavaScript webresource that is used to show 2-Tabs Dialog with 2 inputs each:
 
@@ -115,7 +115,7 @@ AB.DialogDemo = (function () {
 })();
 ```
 
-If user leaves text and datetime field unchanged, sets the boolean field to true and selects "Option 2" and "Option 3" in choices control here is the object that will be returned to the callback:
+If a user leaves text and datetime field unchanged, sets the boolean field to true and selects "Option 2" and "Option 3" in choices control here is the object that will be returned to the callback:
 ```json
 {
     "text1": "Initial Value of Text Field",
