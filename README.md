@@ -3,9 +3,6 @@ AB Dialogs is a managed solution that provides the developer a configurable wrap
 
 Here is the list of steps you need to perform in order to use this dialog in your Model-Driven Apps:
 1. Download and install [the latest release](/../../releases/download/1.0.0.0/ABDialogs_1_0_0_0_managed.zip) of ABDialogs solution
-1. Add the reference to the "ab_/Dialogs/Dialog.js" webresource to the place where you plan to call the dialog from:
-    * When you plan to use it in the form scripts, just add the reference as a regular JavaScript webresource
-    * When you plan to use it in the ribbon scripts, add the reference to the webresource before using it in your code using "Custom JavaScript" Enable Rule
 1. Prepare your "Dialog Configuration" object that has the following structure:
 ```typescript
 //This is high-level settings
@@ -15,6 +12,10 @@ interface DialogSettings {
     //It's possible to have multistep dialogs and TabSettings has to contain all
     //of the step available, required
     TabSettings: TabSetting[];
+    //Height of the dialog window, default value - 300
+    height?: number;
+    //Width of the dialog window, default value - 400
+    width?: number;
 }
 
 //This is a setting description of the particular tab
@@ -54,7 +55,7 @@ interface ChoiceValue {
     Label: string;
 }
 ```
-Call **AB.Dialogs.open** function to open the dialog. This function returns the promise.
+1. Call **AB.Dialogs.open** function to open the dialog. This function returns the promise.
 When a user closes the dialog using the "X" button or "Cancel" button, the promise is resolved with **null** value and returns the object with all values selected in dialog otherwise.
 
 Here is an example of JavaScript webresource that is used to show 2-Tabs Dialog with 2 inputs each:
@@ -114,6 +115,8 @@ AB.DialogDemo = (function () {
     };
 })();
 ```
+1. Add the dependency on "ab_/Dialogs/Dialog.js" webresource to the JS webresource you plan to open the dialog from:
+![Add Dependency](./Images/Configuration_AddDependency.gif)
 
 If a user leaves text and datetime field unchanged, sets the boolean field to true and selects "Option 2" and "Option 3" in choices control here is the object that will be returned to the callback:
 ```json
